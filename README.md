@@ -1,1 +1,2 @@
 # Fixed-Deposit-Calculator
+Readme: Fixed Deposit Calculator is a tool which calculates fixed deposit based on the inputs given by the user . It takes Total Investment , Rate of interest (per annum) ,Total time (in years) for which the interest will be continued , Type of interest i.e Simple interest or compound interest ,based on these input values the calculator returns the total matured amount and also the estimated returns.If any value has been entered inappropriately or missing then the calculator gives the error alert message.
