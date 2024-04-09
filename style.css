@@ -1,0 +1,82 @@
+#fdbody {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #146C94,#8294C4,#AEE2FF);
+    
+  }
+#fdhone{
+font-size:100px;
+font-family: playfair display;
+text-align: center;
+margin-top:25px;
+margin-bottom:15px;
+font-weight: bold;
+}
+#fdcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius:  10%;
+}
+.btn {
+    background-color: #146C94 !important;
+    color: #fff !important;
+    font-family: playfair display;
+    font-size: 20px !important;
+    font-weight:bold !important;
+}
+.btn:hover {
+    background-color: #2CD3E1 !important; 
+}
+.btn:active{
+    background-color:#AEE2FF !important;
+    font-family:playfair display;
+    font-size:20px !important;
+    color:#146C94 !important;
+}
+.mb-3{
+    font-size:30px;
+    font-family: playfair display;
+    margin-top: 10px;
+}
+input[type="number"].form-control {
+    font-size: 25px; 
+    font-weight:bold;
+}
+.finalm{
+    font-size:30px;
+    font-family: playfair display;
+    font-weight:bold;
+}
+.border{
+    background-color: #fff !important;
+}
+ #toast-body{
+    border:2px red solid !important;
+}
+#toast{
+    border:3px red solid !important;    
+}
+@media screen and (max-width: 600px) {
+    #fdhone{
+        font-size: 30px;
+    }
+    .btn {
+        font-size: 15px !important;
+    }
+    .mb-3{
+        font-size:20px;
+    }
+    .toast-body{
+        font-size:10px !important;
+        padding:0px   !important;
+        text-align: center !important;
+        background-color: #fff !important;
+    }
+    
+}

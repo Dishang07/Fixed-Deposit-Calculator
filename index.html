@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIXED_DEPOSIT_CALCULATOR</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body id="fdbody">
+    <h1 id="fdhone">FIXED DEPOSIT</h1>
+    <div class="container" id="fdcontainer">
+    <form>
+    <div class="mb-3">
+        <label for="validationServer01" class="form-label">Total Investment:</label><br>
+        <input type="number" class="form-control" id="validationCustom01" value="Mark" min="1"required>
+    </div>
+    <div class="mb-3">
+        <label for="validationServer01" class="form-label">Rate Of Interest(p.a):</label><br>
+        <input type="number" class="form-control" id="validationCustom02" value="Mark" min="0" required>
+    </div>
+    <div class="mb-3">
+        <label for="validationServer01" class="form-label">Time Period(Years):</label><br>
+        <input type="number" class="form-control" id="validationCustom03" value="Mark" min="1"required>
+    </div>   
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example" id="typeid"required>
+        <option selected>Type Of Interest</option><br> 
+        <option value="1">Simple Interest</option><br> 
+        <option value="2">Compound Interest</option>
+    </select><br>
+  </form>
+  <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="border">
+    <div id="toast-body">
+    </div>
+  </div>
+  </div>
+  <button type="button" class="btn btn-primary btn-lg" onclick="calculatefixeddeposit()">CALCULATE</button>
+  <p id="maturedamount" class="finalm"></p>
+  <p id="estimatedamount" class="finalm"></p>
+</div>
+  <script>
+    function showToast(message) {
+      var toast = document.getElementById("toast");
+      var toastBody = document.getElementById("toast-body");
+      toastBody.innerHTML = message;
+      $(toast).toast({ delay: 3000 });
+      $(toast).toast('show');
+  }
+    function calculatefixeddeposit(){
+         var p=parseFloat(document.getElementById("validationCustom01").value);
+         var r=parseFloat(document.getElementById("validationCustom02").value);
+         var t=parseFloat(document.getElementById("validationCustom03").value);
+         if(p<=0 || r<0 ||t<=0){
+            showToast(" ⚠ Please enter valid values. ");
+            return;
+         }
+         if(isNaN(p)||isNaN(r)||isNaN(t)){
+            showToast("⚠ Please enter the all the values before calculating.");
+            return;
+         }
+         var type = document.getElementsByClassName("form-select")[0].value;
+         if(isNaN(type)){
+            showToast(" ⚠ Please select the type of interest before calculating.");
+            return;
+         }
+         if(type==1){
+            var m=p+((p*r*t)/100);
+            document.getElementById("maturedamount").innerHTML="MATURED AMOUNT = ₹ "+m.toFixed(2);
+            var e=m-p;
+            document.getElementById("estimatedamount").innerHTML="ESTIMATED RETURNS = ₹ "+e.toFixed(2);
+         }
+         if(type==2){
+            var m=p+p*(Math.pow(1+(r/100),t)-1);
+            document.getElementById("maturedamount").innerHTML="MATUED AMOUNT = ₹ "+m.toFixed(2);
+            var e=m-p;
+            document.getElementById("estimatedamount").innerHTML="ESTIMATED RETURNS = ₹ "+e.toFixed(2);
+         }
+         document.getElementById("maturedamount").scrollIntoView();
+}
+  </script>
+</body>
+</html>
